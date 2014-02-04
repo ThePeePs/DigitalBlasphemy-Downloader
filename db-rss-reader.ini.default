@@ -1,0 +1,144 @@
+# Note Lines beging with "#" or ";" are comments and will not
+# be part of the configuration, unless they are deleted.
+# Inline comments can be deleted, but do NOT delete just the ";" as
+# the inline comment will be come part of the config.
+
+# Edit settings as needed or desired.
+
+[dbinfo]
+# Digital Blasphemy site settings
+user=user
+pass=password
+
+# Use blurb about new image from preview page or RSS feed
+# in email notification.
+# PLEASE NOTE: Ryan does not always have a blurb on the preview page.
+# Its best to use the blurb from the RSS feed (also contains preview image).
+blurb=rss                      ; (rss/site)
+
+# Number of times to retry to download images.
+retries=3
+
+[proxy]
+# HTTP Settings
+use=no                         ; (yes/no)
+server=http                    ; type (http/socks/etc)
+server=http://proxy.host:8080  ; type://host:port
+
+[mail]
+# Mail settings
+send=no         ; (yes/no)
+to=name<user@exmaple.com>
+from=DB Downloader<dbrss@example.com>
+srv=mail.example.com
+port=25
+
+# Mail authentication 
+# PLEASE NOTE: CRAM-MD5 depends on Digest::HMAC_MD5
+# NTLM depends on Authen::NTLM
+authreq=no       ; (yes/no)
+authtype=PLAIN   ; allowed types (LOGIN, PLAIN, CRAM-MD5 and NTLM)
+authdomain=      ; Only optionally needed for NTLM auth. (check your server settings)
+user=user
+pass=password
+
+[filepath]
+# Pick the correct one for your system, and edit to your liking.
+# Enviromental varables can be used as %variablename%.
+
+# Directory to keep log and status files.
+# Windows
+;datadir=%APPDATA%/db-rss-reader
+
+# *nix
+;datadir=%HOME%/.db-rss-reader
+
+# Base Directory for image files.
+# Windows
+;basedir=%USERPROFILE%/My Documents/My Pictures/DigitalBlasphemy
+
+# *nix
+;basedir=%HOME%/Pictures/DigitalBlasphemy
+
+[logging]
+# Logging Settings
+
+enabled=yes   ; (yes/no)
+
+# Name of log file (Saved to datadir/logfile)
+logfile=log.txt
+
+# Also log to STDOUT (console/cmd window).
+consolelog=no ; (yes/no)
+
+[dlsizes]
+# Image sizes that you would like to download.
+# You can change the save path and name to your liking.
+# Please note: IMGNAME must be in the path, as it is used 
+# as a place holder for the title of the image 
+# (ex: IMGNAME.jpg becomes Fluorescence.jpg)
+# DO NOT change the name of the Resolution.
+# Uncomment the ones you would like. 
+
+#Resolution                 Save Path                     Type
+# Mobile Sizes
+;240x160    =  mobile/240x160/IMGNAME240x160.jpg       ; 240 x 160 (BlackBerry)
+;240x260    =  mobile/240x260/IMGNAME240x260.jpg       ; 240 x 260 (BlackBerry 8100)
+;240x320    =  mobile/240x320/IMGNAME240x320.jpg       ; 240 x 320 (Zune)
+;320x480    =  mobile/320x480/IMGNAME320x480.jpg       ; 320 x 480 (iPhone/Pre)
+;320x320    =  mobile/320x320/IMGNAME320x320.jpg       ; 320 x 320 (Palm)
+;360x480    =  mobile/360x480/IMGNAME360x480.jpg       ; 360 x 480 (BlackBerry Storm)
+;480x272    =  mobile/480x272/IMGNAME480x272.jpg       ; 480 x 272 (PSP/ZUNE HD)
+;480x320    =  mobile/480x320/IMGNAME480x320.jpg       ; 480 x 320 (BlackBerry Bold)
+;480x800    =  mobile/480x800/IMGNAME480x800.jpg       ; 480 x 800 (Touch2/WP7)
+;640x480    =  mobile/640x480/IMGNAME640x480.jpg       ; 640 x 480 (G1)
+;timeline   =  fb-Timeline/IMGNAMEfbt.jpg              ; 850 x 315 (Facebook Timeline)
+;640x960    =  mobile/640x960/IMGNAME640x960.jpg       ; 640 x 960 (iPhone 4)
+;640x1136   =  mobile/640x1136/IMGNAME640x1136.jpg     ; 640 x 1136 (iPhone 5)
+;960x544    =  mobile/960x544/IMGNAME960x544.jpg       ; 960 x 544 (PS Vita)
+;960x800    =  mobile/960x800/IMGNAME960x800.jpg       ; 960 x 800 (Evo, Incredible, N1)
+;960x854    =  mobile/960x854/IMGNAME960x854.jpg       ; 960 x 854 (Moto Droid)
+;1440x1280  =  mobile/1440x1280/IMGNAME1440x1280.jpg   ; 1440 x 1280 (Nexus 7)
+;1080x1920  =  mobile/1080x1920/IMGNAME1080x1920.jpg   ; 1080 x 1920 (S4, HTC One)
+;1024x1024  =  mobile/1024x1024/IMGNAME1024x1024.jpg   ; 1024 x 1024 (iPad 1&2/Mini)
+;2048x2048  =  mobile/2048x2048/IMGNAME2048x2048.jpg   ; 2048 x 2048 (iPad HD)
+
+# Single Screen Sizes
+;1024x768   =  single/1024x768/IMGNAME1024st.jpg       ; 1024 x 768 (4:3)
+;1152x864   =  single/1152x864/IMGNAME.jpg             ; 1152 x 864 (4:3)
+;1600x1200  =  single/1600/IMGNAME1600.jpg             ; 1600 x 1200 (4:3)
+;1280x1024  =  single/1280/IMGNAME1280.jpg             ; 1280 x 1024 (5:4)
+;1024x600   =  single/1024/IMGNAME1024.jpg             ; 1024 x 600 (Netbook)
+;1280x800   =  single/1280w/IMGNAME1280w.jpg           ; 1280 x 800 (16:10) 
+;1366x768   =  single/1366/IMGNAME1366.jpg             ; 1366 x 768 (16:9)
+;1600x900   =  single/1600x900/IMGNAME1600x900.jpg     ; 1600 x 900 (16:9)
+;1920x1080  =  single/1080p/IMGNAME1080p.jpg           ; 1920 x 1080 (16:9 - HDTV/1080p)
+;2560x1440  =  single/1440p/IMGNAME1440p.jpg           ; 2560 x 1440 (16:9)
+;2560x1440L =  png/2560x1440/IMGNAME1440p.png          ; 2560 x 1440 Lossless
+;1440x900   =  single/1440/IMGNAME1440.jpg             ; 1440 x 900 (16:10)
+;1680x1050  =  single/1680/IMGNAME1680.jpg             ; 1680 x 1050 (16:10)
+;1920x1200  =  single/1920x1200/IMGNAME1920.jpg        ; 1920 x 1200 (16:10)
+;2560x1600  =  single/2560x1600/IMGNAME2560.jpg        ; 2560 x 1600 (16:10)
+;2560x1600L =  png/2560x1600/IMGNAME2560.png           ; 2560 x 1600 Lossless
+;2880x1800  =  single/2880x1800/IMGNAME2880.jpg        ; 2880 x 1800 (16:10)
+;2880x1800L =  png/2880x1800/IMGNAME2880.png           ; 2880 x 1800 Lossless
+;4096x2560  =  single/4k/IMGNAME4k.jpg                 ; 4096 x 2560 (4K)
+
+# Multiscreen Sizes
+;2560x1024  =  dual/2560x1024/IMGNAME2x2560.jpg        ; 2560 x 1024 (dual 5:4)
+;3200x1200  =  dual/3200x1200/IMGNAME2x.jpg            ; 3200 x 1200 (dual 4:3)
+;3840x1080  =  dual/3840x1080/IMGNAME2x1080p.jpg       ; 3840 x 1080 (dual 16:9 - HDTV/1080p 2x)
+;5120x1440  =  dual/5120x1440/IMGNAME2x1440p.jpg       ; 5120 x 1440 (dual 16:9)
+;3360x1050  =  dual/3360x1050/IMGNAME2x3360.jpg        ; 3360 x 1050 (dual 16:10)
+;3840x1200  =  dual/3840x1200/IMGNAME2x3840.jpg        ; 3840 x 1200 (dual 16:10)
+;5120x1600  =  dual/5120x1600/IMGNAME2x5120.jpg        ; 5120 x 1600 (dual 16:10)
+;3840x1024  =  triple/3840x1024/IMGNAME3x3840.jpg      ; 3840 x 1024 (triple 5:4)
+;4800x1200  =  triple/4800x1200/IMGNAME3x.jpg          ; 4800 x 1200 (triple 4:3)
+;5760x1080  =  triple/5760x1080/IMGNAME3x1080p.jpg     ; 5760 x 1080 (triple 16:9 - HDTV/1080p 3x)
+;7680x1440  =  triple/7680x1440/IMGNAME3x1440p.jpg     ; 7680 x 1440 (triple 16:9)
+;5040x1050  =  triple/5040x1050/IMGNAME3x5040.jpg      ; 5040 x 1050 (triple 16:10)
+;5760x1200  =  triple/5760x1200/IMGNAME3x5760.jpg      ; 5760 x 1200 (triple 16:10)
+;7680x1600  =  triple/7680x1600/IMGNAME3x7680.jpg      ; 7680 x 1600 (triple 16:10)
+
+
+
