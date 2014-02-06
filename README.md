@@ -25,25 +25,29 @@ patcher.pl should be used after you updated (either git pull or svn checkout).  
 
 Download Perl for Windows from http://strawberryperl.com and install.
 
-Open a cmd prompt and install the required perl modules. (copy/paste below)<br>
+Open a cmd prompt and install the required perl modules. (copy/paste below)
+
     cpan Sys::Hostname::Long Config::IniHash DateTime::Format::Mail HTML::TreeBuilder::XPath Mail::Sender XML::RSS::Parser
 
 Download Git client for windows at: http://windows.github.com and install
 
-Open the "Git Shell" and paste the following:<br>
+Open the "Git Shell" and paste the following:
+
     git clone https://github.com/ThePeePs/DigitalBlasphemy-Downloader.git db-downloader
 
 
-If you do not feel confertabla with using Git, you can also use [TortoiseSVN](http://tortoisesvn.net/downloads.html "TortoiseSVN Download link")
+If you do not feel comfortable with using Git, you can also use [TortoiseSVN](http://tortoisesvn.net/downloads.html "TortoiseSVN Download link")
 
-Create a new folder, right-click on it, select SVN Checkout.. and paste the following in to URL feed:<br>
+Create a new folder, right-click on it, select SVN Checkout.. and paste the following in to URL feed:
+
     https://github.com/ThePeePs/DigitalBlasphemy-Downloader
 
 
 Copy or rename db-rss-reader.ini.default to db-rss-reader.ini.<br>
 Edit the config (db-rss-reader.ini) to suit your needs. (I suggest using Wordpad or [Notepad++](http://notepad-plus-plus-.org/download/v6.5.3.html "Notepad++ Website"))
 
-To run the scipt. open a command prompt, and cd to the directory of the script, and enter:<br>
+To run the scipt. open a command prompt, and cd to the directory of the script, and enter:
+
     perl db-rss-reader.pl
 
 I suggest you set it up as a scheduled task to run at least once a week.
