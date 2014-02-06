@@ -15,7 +15,7 @@ use Mail::Sender;
 use File::Path qw(make_path remove_tree);
 our $version = '0.1a';
 
-# TODO Clean up blurb to remove ads, and only have info about the image.
+# TODO Add option to download zip files, and sort files to correct folders.
 # TODO Add automatic checking of github repo for updates.
 # TODO Cleanup email body.
 
