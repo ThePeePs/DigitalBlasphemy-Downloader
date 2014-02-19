@@ -279,7 +279,7 @@ if ( $skip == 0 ) {
         if ( $remove == 0 ) {
             splice(@dllist,$l,1);
         };
-        $l++
+        $l++;
     };
     untie @dllist;
 };
