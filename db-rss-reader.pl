@@ -7,6 +7,7 @@ use LWP;
 use LWP::Authen::Basic;
 use HTML::TreeBuilder::XPath;
 use HTML::Parser;
+use HTML::Entities;
 use XML::RSS::Parser;
 use DateTime::Format::Mail;
 use FileHandle;
