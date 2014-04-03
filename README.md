@@ -1,4 +1,4 @@
-# Digital Blashemy Auto Downloader
+# Digital Blasphemy Auto Downloader
 This perl script will read the RSS feed from http://digitalblasphemy.com and auto download user selected sizes of Ryan Bliss's latest renders.
 You must be a Member of Digital Blasphemy to download the Hi-Res versions (member-sizes).<br>
 If you have any suggestions, feature requests or find a bug, please open a issue.<br>
