@@ -1,6 +1,6 @@
-# DB-RSS-Reader
-This perl script will read the RSS feed from http://digitalblasphemy.com and auto download user selected sizes of Ryan's latest renders.
-You need to be a Member of the site to download the Hi-Res versions (member-sizes).<br>
+# 
+This perl script will read the RSS feed from http://digitalblasphemy.com and auto download user selected sizes of Ryan Bliss's latest renders.
+You must be a Member of Digital Blasphemy to download the Hi-Res versions (member-sizes).<br>
 If you have any suggestions, feature requests or find a bug, please open a issue.<br>
 If you would like to contribute, please fork the repo, and submit a Pull Request.
 
