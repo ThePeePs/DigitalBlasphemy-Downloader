@@ -82,23 +82,24 @@ consolelog=no ; (yes/no)
 
 #Resolution                 Save Path                     Type
 # Mobile Sizes
-;240x160    =  mobile/240x160/IMGNAME240x160.jpg       ; 240 x 160 (BlackBerry)
-;240x260    =  mobile/240x260/IMGNAME240x260.jpg       ; 240 x 260 (BlackBerry 8100)
-;240x320    =  mobile/240x320/IMGNAME240x320.jpg       ; 240 x 320 (Zune)
 ;320x480    =  mobile/320x480/IMGNAME320x480.jpg       ; 320 x 480 (iPhone/Pre)
-;320x320    =  mobile/320x320/IMGNAME320x320.jpg       ; 320 x 320 (Palm)
-;480x272    =  mobile/480x272/IMGNAME480x272.jpg       ; 480 x 272 (PSP/ZUNE HD)
+;360x480    =  mobile/360x480/IMGNAME360x480.jpg       ; 360 x 480 (BlackBerry Storm)
+;480x272    =  mobile/480x272/IMGNAME480x272.jpg       ; 480 x 272 (PSP)
 ;480x320    =  mobile/480x320/IMGNAME480x320.jpg       ; 480 x 320 (BlackBerry Bold)
+;480x360    =  mobile/480x360/IMGNAME480x360.jpg       ; 480 x 360 (BlackBerry Curve)
 ;480x800    =  mobile/480x800/IMGNAME480x800.jpg       ; 480 x 800 (Touch2/WP7)
+;640x480    =  mobile/640x480/IMGNAME640x480.jpg       ; 640 x 480 (G1)
 ;timeline   =  fb-Timeline/IMGNAMEfbt.jpg              ; 850 x 315 (Facebook Timeline)
-;640x960    =  mobile/640x960/IMGNAME640x960.jpg       ; 640 x 960 (iPhone 4)
-;640x1136   =  mobile/640x1136/IMGNAME640x1136.jpg     ; 640 x 1136 (iPhone 5+)
+;640x1136   =  mobile/640x1136/IMGNAME640x1136.jpg     ; 640 x 1136 (iPhone 5)
+;750x1344   =  mobile/750x1344/IMGNAME750x1344.jpg     ; 750 x 1344 (iPhone 6)
+;1920x1920  =  mobile/1920x1920/IMGNAME1920x1920.jpg   ; 1920 x 1920 (iPhone 6+)
 ;960x544    =  mobile/960x544/IMGNAME960x544.jpg       ; 960 x 544 (PS Vita)
 ;960x800    =  mobile/960x800/IMGNAME960x800.jpg       ; 960 x 800 (Evo, Incredible, N1)
 ;960x854    =  mobile/960x854/IMGNAME960x854.jpg       ; 960 x 854 (Moto Droid)
 ;1440x1280  =  mobile/1440x1280/IMGNAME1440x1280.jpg   ; 1440 x 1280 (Nexus 7)
 ;1080x1920  =  mobile/1080x1920/IMGNAME1080x1920.jpg   ; 1080 x 1920 (S4, HTC One)
 ;1024x1024  =  mobile/1024x1024/IMGNAME1024x1024.jpg   ; 1024 x 1024 (iPad 1&2/Mini)
+;2160x1440  =  mobile/2160x1440/IMGNAME2160x1440.jpg   ; 2160 x 1440 (Surface 3)
 ;2048x2048  =  mobile/2048x2048/IMGNAME2048x2048.jpg   ; 2048 x 2048 (Retina iPad/Mini)
 
 # Single Screen Sizes
@@ -120,6 +121,7 @@ consolelog=no ; (yes/no)
 ;2560x1600L =  png/2560x1600/IMGNAME2560.png           ; 2560 x 1600 Lossless
 ;2880x1800  =  single/2880x1800/IMGNAME2880.jpg        ; 2880 x 1800 (16:10)
 ;2880x1800L =  png/2880x1800/IMGNAME2880.png           ; 2880 x 1800 Lossless
+;4096x2304  =  single/4k/IMGNAME4ktv.jpg               ; 4096 x 2304 (4K 16:9)
 ;4096x2560  =  single/4k/IMGNAME4k.jpg                 ; 4096 x 2560 (4K)
 
 # Multiscreen Sizes
@@ -130,6 +132,7 @@ consolelog=no ; (yes/no)
 ;3360x1050  =  dual/3360x1050/IMGNAME2x3360.jpg        ; 3360 x 1050 (dual 16:10)
 ;3840x1200  =  dual/3840x1200/IMGNAME2x3840.jpg        ; 3840 x 1200 (dual 16:10)
 ;5120x1600  =  dual/5120x1600/IMGNAME2x5120.jpg        ; 5120 x 1600 (dual 16:10)
+;8192x2560  =  dual/8192x2560/IMGNAME4k2x.jpg          ; 8192 x 2560 (Dual 4K)
 ;3840x1024  =  triple/3840x1024/IMGNAME3x3840.jpg      ; 3840 x 1024 (triple 5:4)
 ;4800x1200  =  triple/4800x1200/IMGNAME3x.jpg          ; 4800 x 1200 (triple 4:3)
 ;5760x1080  =  triple/5760x1080/IMGNAME3x1080p.jpg     ; 5760 x 1080 (triple 16:9 - HDTV/1080p 3x)
@@ -137,4 +140,5 @@ consolelog=no ; (yes/no)
 ;5040x1050  =  triple/5040x1050/IMGNAME3x5040.jpg      ; 5040 x 1050 (triple 16:10)
 ;5760x1200  =  triple/5760x1200/IMGNAME3x5760.jpg      ; 5760 x 1200 (triple 16:10)
 ;7680x1600  =  triple/7680x1600/IMGNAME3x7680.jpg      ; 7680 x 1600 (triple 16:10)
+;12288x2560 =  triple/12288x2560/IMGNAME4k3x.jpg       ; 12288 x 2560 (Triple 4K)
 

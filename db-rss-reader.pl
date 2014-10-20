@@ -59,23 +59,24 @@ if (!defined $basedir || !defined $datadir) {
 
 # Paths to all image sizes.
 # DO NOT EDIT THIS!
-%imgsizes = ('240x160'    => 'graphics/240x160/IMGNAME240x160.jpg',
-             '240x260'    => 'graphics/240x260/IMGNAME240x260.jpg',
-             '240x320'    => 'graphics/240x320/IMGNAME240x320.jpg',
-             '320x480'    => 'graphics/320x480/IMGNAME320x480.jpg',
-             '320x320'    => 'graphics/320x320/IMGNAME320x320.jpg',
+%imgsizes = ('320x480'    => 'graphics/320x480/IMGNAME320x480.jpg',
+             '360x480'    => 'graphics/360x480/IMGNAME360x480.jpg',
              '480x272'    => 'graphics/480x272/IMGNAME480x272.jpg',
              '480x320'    => 'graphics/480x320/IMGNAME480x320.jpg',
+             '480x360'    => 'graphics/480x360/IMGNAME480x360.jpg',
              '480x800'    => 'graphics/480x800/IMGNAME480x800.jpg',
+             '640x480'    => 'graphics/640x480/IMGNAME640x480.jpg',
              'timeline'   => 'graphics/fbt/IMGNAMEfbt.jpg',
-             '640x960'    => 'content/jpgs/640x960/IMGNAME640x960.jpg',
              '640x1136'   => 'content/jpgs/640x1136/IMGNAME640x1136.jpg',
+             '750x1344'   => 'content/jpgs/750x1344/IMGNAME750x1344.jpg',
+             '1920x1920'  => 'content/jpgs/1920x1920/IMGNAME1920x1920.jpg',
              '960x544'    => 'content/jpgs/960x544/IMGNAME960x544.jpg',
              '960x800'    => 'content/jpgs/960x800/IMGNAME960x800.jpg',
              '960x854'    => 'content/jpgs/960x854/IMGNAME960x854.jpg',
              '1440x1280'  => 'content/jpgs/1440x1280/IMGNAME1440x1280.jpg',
              '1080x1920'  => 'content/jpgs/1080x1920/IMGNAME1080x1920.jpg',
              '1024x1024'  => 'content/jpgs/1024x1024/IMGNAME1024x1024.jpg',
+             '2160x1440'  => 'content/jpgs/2160x1440/IMGNAME2160x1440.jpg',
              '2048x2048'  => 'content/jpgs/2048x2048/IMGNAME2048x2048.jpg',
              '1024x768'   => 'content/jpgs/1024st/IMGNAME1024st.jpg',
              '1152x864'   => 'content/jpgs/db/IMGNAME.jpg',
@@ -95,6 +96,7 @@ if (!defined $basedir || !defined $datadir) {
              '2560x1600L' => 'content/png/IMGNAME2560.png',
              '2880x1800'  => 'content/jpgs/widescreen/IMGNAME2880.jpg',
              '2880x1800L' => 'content/png/IMGNAME2880.png',
+             '4096x2304'  => 'content/jpgs/4k/IMGNAME4ktv.jpg',
              '4096x2560'  => 'content/jpgs/4k/IMGNAME4k.jpg',
              '2560x1024'  => 'content/jpgs/2x/IMGNAME2x2560.jpg',
              '3200x1200'  => 'content/jpgs/2x/IMGNAME2x.jpg',
@@ -103,13 +105,15 @@ if (!defined $basedir || !defined $datadir) {
              '3360x1050'  => 'content/jpgs/2x/IMGNAME2x3360.jpg',
              '3840x1200'  => 'content/jpgs/2x/IMGNAME2x3840.jpg',
              '5120x1600'  => 'content/jpgs/2x/IMGNAME2x5120.jpg',
+             '8192x2560'  => 'content/jpgs/2x/IMGNAME4k2x.jpg',
              '3840x1024'  => 'content/jpgs/3x/IMGNAME3x3840.jpg',
              '4800x1200'  => 'content/jpgs/3x/IMGNAME3x.jpg',
              '5760x1080'  => 'content/jpgs/3x/IMGNAME3x1080p.jpg',
              '7680x1440'  => 'content/jpgs/3x/IMGNAME3x1440p.jpg',
              '5040x1050'  => 'content/jpgs/3x/IMGNAME3x5040.jpg',
              '5760x1200'  => 'content/jpgs/3x/IMGNAME3x5760.jpg',
-             '7680x1600'  => 'content/jpgs/3x/IMGNAME3x7680.jpg');
+             '7680x1600'  => 'content/jpgs/3x/IMGNAME3x7680.jpg',
+             '12288x2560' => 'content/jpgs/3x/IMGNAME4k3x.jpg');
 
 # Create Directories and files if they don't exist.
 if ( !-e $datadir ) {
