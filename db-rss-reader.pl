@@ -212,18 +212,18 @@ if ( $skip == 0 ) {
                     @info = split(/,/, $line);
 
                     # We have all sizes of the img, and the number of sizes to download has not changed
-                    if ( $info[1] == $dt->epoch && $info[2] == $dlcount && $info[3] == (2 ** $dlcount - 1) ) {
+                    if ( $info[1] == $dte && $info[2] == $dlcount && $info[3] == (2 ** $dlcount - 1) ) {
                         &write_log("We have all sizes for $imgname already, moving on to the next.\n",0);
                         $check = 1;
                     }
                     # We have some of the sizes of the img, the number of sizes has not changed, and we have not exceeded the max num of retries.
-                    elsif ( $info[1] == $dt->epoch && $info[2] == $dlcount && $info[3] != (2 ** $dlcount - 1) && $info[4] < $retries ) {
+                    elsif ( $info[1] == $dte && $info[2] == $dlcount && $info[3] != (2 ** $dlcount - 1) && $info[4] < $retries ) {
                         &write_log("We have some of the sizes for $imgname, retrying...\n",0);
                         $check = 2;
                         $l = $n;
                     }
                     # Max number of retry attempts meet, we will not try again.
-                    elsif ( $info[1] == $dt->epoch && $info[2] == $dlcount && $info[3] != (2 ** $dlcount - 1) && $info[4] > $retries ) {
+                    elsif ( $info[1] == $dte && $info[2] == $dlcount && $info[3] != (2 ** $dlcount - 1) && $info[4] > $retries ) {
                         &write_log("Max number of retries for $imgname reached. No more attempts will be made.\n",0);
                     }
                     # The number sizes has changed.
@@ -299,7 +299,7 @@ if ( $sendmail eq 'yes' && $skip == 0 ) {
         $emailtxt .= "<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\"><tr><th>".sprintf("%-13s","Resolution")."</th><th>Downloaded</th></tr>\n";
         foreach $size (keys %$dlsizes) {
             if ( $bresults[$b] == 0 ) {
-                $emailtxt .= "<tr><td>".sprintf("%-13s",$size)."</td><td><font color=\"red\"".&bit_to_txt($bresults[$b])."</font></td></tr>\n";
+                $emailtxt .= "<tr><td>".sprintf("%-13s",$size)."</td><td><font color=\"red\">".&bit_to_txt($bresults[$b])."</font></td></tr>\n";
             }
             else {
                 $emailtxt .= "<tr><td>".sprintf("%-13s",$size)."</td><td><font color=\"green\">".&bit_to_txt($bresults[$b])."</font></td></tr>\n";
@@ -344,10 +344,10 @@ if ( $sendmail eq 'yes' && $skip == 0 ) {
     $mail->Part({ctype => 'text/html', dispostion => 'NONE', msg => $html});
     $mail->EndPart('mulitpart/alternative');
     if ( $mail->Close ) {
-        &write_log("Mail send OK.\n",0)
+        &write_log("Mail send OK.\n\n",0)
     }
     else {
-        &write_log("Error sending mail: $Mail::Sender::Error \n",0)
+        &write_log("Error sending mail: $Mail::Sender::Error \n\n",0)
     };
 };
 
@@ -418,7 +418,7 @@ sub retry_download($) {
         };
         $dlval =~ s/IMGNAME/$imgname/;
         # If the file does not already exit, try to download it.
-        if ( !-e "$basedir/$dlval" && $bstatus[$b] != 1 ) {
+        if ( !-e "$basedir/$dlval" && $bstatus[$b] == 0 ) {
             &write_log("Downloading $imgname at $dlkey... ",0);
             my $dlreq = new HTTP::Request('GET', "http://www.digitalblasphemy.com/$uri");
             my $dlres = $ua->request($dlreq, "$basedir/$dlval");
@@ -439,9 +439,12 @@ sub retry_download($) {
             };
         }
         else {
-            &write_log("File for $imgname at $dlkey not marked for retry.\n",0);
-            if ( -e "$basedir/$dlval" ) {
+            if ( -e "$basedir/$dlval" && $bstatus[$b] == 0 ) {
                 $bresults[$b] = 1;
+                &write_log("File for $imgname at $dlkey exists, moving on to next.\n",0)
+            }
+            else {
+                &write_log("File for $imgname at $dlkey not marked for retry.\n",0);
             };
         };
         # Sleep for 4 seconds to prevent DoS like downloading.
@@ -480,6 +483,7 @@ sub dec_to_bin($) {
     my $bstr = unpack("b48", pack("I", $dldec)); 
     $bstr = reverse($bstr);
     my @bits = split(//,substr($bstr, -$dlcount)); 
+    @bits = reverse @bits;
     return @bits;
 }
     
