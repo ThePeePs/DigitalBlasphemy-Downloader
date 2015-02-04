@@ -119,10 +119,12 @@ consolelog=no ; (yes/no)
 ;1920x1200  =  single/1920x1200/IMGNAME1920.jpg        ; 1920 x 1200 (16:10)
 ;2560x1600  =  single/2560x1600/IMGNAME2560.jpg        ; 2560 x 1600 (16:10)
 ;2560x1600L =  png/2560x1600/IMGNAME2560.png           ; 2560 x 1600 Lossless
+;3440x1440  =  single/21x9/IMGNAME3440.jpg             ; 3440 x 1440 (21:9)
 ;2880x1800  =  single/2880x1800/IMGNAME2880.jpg        ; 2880 x 1800 (16:10)
 ;2880x1800L =  png/2880x1800/IMGNAME2880.png           ; 2880 x 1800 Lossless
 ;4096x2304  =  single/4k/IMGNAME4ktv.jpg               ; 4096 x 2304 (4K 16:9)
 ;4096x2560  =  single/4k/IMGNAME4k.jpg                 ; 4096 x 2560 (4K)
+;5120x2880  =  single/5k/IMGNAME5ktv.jpg               ; 5120 x 2880 (5K 16:9)
 
 # Multiscreen Sizes
 ;2560x1024  =  dual/2560x1024/IMGNAME2x2560.jpg        ; 2560 x 1024 (dual 5:4)
@@ -132,6 +134,7 @@ consolelog=no ; (yes/no)
 ;3360x1050  =  dual/3360x1050/IMGNAME2x3360.jpg        ; 3360 x 1050 (dual 16:10)
 ;3840x1200  =  dual/3840x1200/IMGNAME2x3840.jpg        ; 3840 x 1200 (dual 16:10)
 ;5120x1600  =  dual/5120x1600/IMGNAME2x5120.jpg        ; 5120 x 1600 (dual 16:10)
+;8192x2304  =  dual/8192x2304/IMGNAME4ktv2x.jpg        ; 8192 x 2304 (Dual 4K 16:9)
 ;8192x2560  =  dual/8192x2560/IMGNAME4k2x.jpg          ; 8192 x 2560 (Dual 4K)
 ;3840x1024  =  triple/3840x1024/IMGNAME3x3840.jpg      ; 3840 x 1024 (triple 5:4)
 ;4800x1200  =  triple/4800x1200/IMGNAME3x.jpg          ; 4800 x 1200 (triple 4:3)
@@ -140,5 +143,6 @@ consolelog=no ; (yes/no)
 ;5040x1050  =  triple/5040x1050/IMGNAME3x5040.jpg      ; 5040 x 1050 (triple 16:10)
 ;5760x1200  =  triple/5760x1200/IMGNAME3x5760.jpg      ; 5760 x 1200 (triple 16:10)
 ;7680x1600  =  triple/7680x1600/IMGNAME3x7680.jpg      ; 7680 x 1600 (triple 16:10)
+;12288x2304 =  triple/12288x2304/IMGNAME4ktv3x.jpg     ; 12288 x 2304 (Triple 4K 16:9)
 ;12288x2560 =  triple/12288x2560/IMGNAME4k3x.jpg       ; 12288 x 2560 (Triple 4K)
 

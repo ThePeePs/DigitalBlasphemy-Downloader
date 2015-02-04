@@ -94,10 +94,12 @@ if (!defined $basedir || !defined $datadir) {
              '1920x1200'  => 'content/jpgs/widescreen/IMGNAME1920.jpg',
              '2560x1600'  => 'content/jpgs/widescreen/IMGNAME2560.jpg',
              '2560x1600L' => 'content/png/IMGNAME2560.png',
+             '3440x1440'  => 'content/jpgs/21x9/IMGNAME3440.jpg',
              '2880x1800'  => 'content/jpgs/widescreen/IMGNAME2880.jpg',
              '2880x1800L' => 'content/png/IMGNAME2880.png',
              '4096x2304'  => 'content/jpgs/4k/IMGNAME4ktv.jpg',
              '4096x2560'  => 'content/jpgs/4k/IMGNAME4k.jpg',
+             '5120x2880'  => 'content/jpgs/5k/IMGNAME5ktv.jpg',
              '2560x1024'  => 'content/jpgs/2x/IMGNAME2x2560.jpg',
              '3200x1200'  => 'content/jpgs/2x/IMGNAME2x.jpg',
              '3840x1080'  => 'content/jpgs/2x/IMGNAME2x1080p.jpg',
@@ -105,6 +107,7 @@ if (!defined $basedir || !defined $datadir) {
              '3360x1050'  => 'content/jpgs/2x/IMGNAME2x3360.jpg',
              '3840x1200'  => 'content/jpgs/2x/IMGNAME2x3840.jpg',
              '5120x1600'  => 'content/jpgs/2x/IMGNAME2x5120.jpg',
+             '8192x2304'  => 'content/jpgs/2x/IMGNAME4ktv2x.jpg',
              '8192x2560'  => 'content/jpgs/2x/IMGNAME4k2x.jpg',
              '3840x1024'  => 'content/jpgs/3x/IMGNAME3x3840.jpg',
              '4800x1200'  => 'content/jpgs/3x/IMGNAME3x.jpg',
@@ -113,6 +116,7 @@ if (!defined $basedir || !defined $datadir) {
              '5040x1050'  => 'content/jpgs/3x/IMGNAME3x5040.jpg',
              '5760x1200'  => 'content/jpgs/3x/IMGNAME3x5760.jpg',
              '7680x1600'  => 'content/jpgs/3x/IMGNAME3x7680.jpg',
+             '12288x2304' => 'content/jpgs/3x/IMGNAME4ktv3x.jpg',
              '12288x2560' => 'content/jpgs/3x/IMGNAME4k3x.jpg');
 
 # Create Directories and files if they don't exist.
@@ -437,6 +441,8 @@ sub retry_download($) {
             else {
                 &write_log('Failed, HTTP Error '.$dlres->code.': '.$dlres->message."\n",1);
             };
+            # Sleep for 4 seconds to prevent DoS like downloading.
+            sleep(4);
         }
         else {
             if ( -e "$basedir/$dlval" && $bstatus[$b] == 0 ) {
@@ -447,8 +453,6 @@ sub retry_download($) {
                 &write_log("File for $imgname at $dlkey not marked for retry.\n",0);
             };
         };
-        # Sleep for 4 seconds to prevent DoS like downloading.
-        sleep(4);
         $b++;
     };
     $results = &bin_to_dec(@bresults);
