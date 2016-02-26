@@ -59,15 +59,20 @@ if (!defined $basedir || !defined $datadir) {
 
 # Paths to all image sizes.
 # DO NOT EDIT THIS!
-%imgsizes = ('320x480'    => 'graphics/320x480/IMGNAME320x480.jpg',
+%imgsizes = ('timeline'   => 'graphics/fbt/IMGNAMEfbt.jpg',
+             '320x480'    => 'graphics/320x480/IMGNAME320x480.jpg',
              '480x800'    => 'graphics/480x800/IMGNAME480x800.jpg',
              '640x960'    => 'graphics/640x960/IMGNAME640x960.jpg',
              '640x1136'   => 'content/jpgs/640x1136/IMGNAME640x1136.jpg',
              '750x1344'   => 'content/jpgs/750x1344/IMGNAME750x1344.jpg',
+             '1920x1920'  => 'content/jpgs/square/IMGNAME1920x1920.jpg',
              '960x544'    => 'content/jpgs/960x544/IMGNAME960x544.jpg',
              '960x800'    => 'content/jpgs/960x800/IMGNAME960x800.jpg',
+             '960x854'    => 'content/jpgs/960x854/IMGNAME960x854.jpg',
              '1440x1280'  => 'content/jpgs/1440x1280/IMGNAME1440x1280.jpg',
              '1080x1920'  => 'content/jpgs/1080x1920/IMGNAME1080x1920.jpg',
+             '1024x1024'  => 'content/jpgs/square/IMGNAME1024x1024.jpg',
+             '2160x1440'  => 'content/jpgs/2160x1440/IMGNAME2160x1440.jpg',
              '2048x2048'  => 'content/jpgs/square/IMGNAME2048x2048.jpg',
              '2560x2560'  => 'content/jpgs/square/IMGNAME2560x2560.jpg',
              '1024x768'   => 'content/jpgs/1024st/IMGNAME1024st.jpg',

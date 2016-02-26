@@ -82,15 +82,20 @@ consolelog=no ; (yes/no)
 
 #Resolution                 Save Path                     Type
 # Mobile Sizes
+;timeline   =  fb-Timeline/IMGNAMEfbt.jpg              ; Free Facebook Cover
 ;320x480    =  mobile/320x480/IMGNAME320x480.jpg       ; 320 x 480 (iPhone/Pre)
 ;480x800    =  mobile/480x800/IMGNAME480x800.jpg       ; 480 x 800 (Touch2/WP7)
 ;640x960    =  mobile/640x960/IMGNAME640x960.jpg       ; 640 x 960 (iPhone 4)
 ;640x1136   =  mobile/640x1136/IMGNAME640x1136.jpg     ; 640 x 1136 (iPhone 5)
 ;750x1344   =  mobile/750x1344/IMGNAME750x1344.jpg     ; 750 x 1344 (iPhone 6)
+;1920x1920  =  mobile/square/IMGNAME1920x1920.jpg      ; 1920 x 1920 (iPhone 6+)
 ;960x544    =  mobile/960x544/IMGNAME960x544.jpg       ; 960 x 544 (PS Vita)
 ;960x800    =  mobile/960x800/IMGNAME960x800.jpg       ; 960 x 800 (Various Mobile)
+;960x854    =  mobile/960x854/IMGNAME960x854.jpg       ; 960 x 854 (Moto Droid)
 ;1440x1280  =  mobile/1440x1280/IMGNAME1440x1280.jpg   ; 1440 x 1280 (Nexus 7)
 ;1080x1920  =  mobile/1080x1920/IMGNAME1080x1920.jpg   ; 1080 x 1920 (S4, HTC One)
+;1024x1024  =  mobile/square/IMGNAME1024x1024.jpg      ; 1024 x 1024 (iPad 1&2/Mini)
+;2160x1440  =  mobile/2160x1440/IMGNAME2160x1440.jpg   ; 2160 x 1440 (Surface 3)
 ;2048x2048  =  mobile/square/IMGNAME2048x2048.jpg      ; 2048 x 2048 (Retina iPad/Mini)
 ;2560x2560  =  mobile/square/IMGNAME2560x2560.jpg      ; 2560 x 2560 (Galaxy S6)
 
