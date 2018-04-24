@@ -14,7 +14,7 @@ use FileHandle;
 use Tie::File;
 use Mail::Sender;
 use File::Path qw(make_path remove_tree);
-our $version = '0.1a';
+our $version = '0.5a';
 
 # TODO Add option to download zip files, and sort files to correct folders.
 # TODO Add automatic checking of github repo for updates.
@@ -59,62 +59,58 @@ if (!defined $basedir || !defined $datadir) {
 
 # Paths to all image sizes.
 # DO NOT EDIT THIS!
-%imgsizes = ('timeline'   => 'graphics/fbt/IMGNAMEfbt.jpg',
-             '320x480'    => 'graphics/320x480/IMGNAME320x480.jpg',
+%imgsizes = ('timeline'   => 'graphics/FreeFacebookCover/IMGNAMEFreeFacebookCover.jpg',
              '480x800'    => 'graphics/480x800/IMGNAME480x800.jpg',
-             '640x1136'   => 'content/jpgs/640x1136/IMGNAME640x1136.jpg',
-             '750x1344'   => 'content/jpgs/750x1344/IMGNAME750x1344.jpg',
-             '1920x1920'  => 'content/jpgs/square/IMGNAME1920x1920.jpg',
-             '960x544'    => 'content/jpgs/960x544/IMGNAME960x544.jpg',
-             '960x800'    => 'content/jpgs/960x800/IMGNAME960x800.jpg',
-             '960x854'    => 'content/jpgs/960x854/IMGNAME960x854.jpg',
-             '1440x1280'  => 'content/jpgs/1440x1280/IMGNAME1440x1280.jpg',
-             '1080x1920'  => 'content/jpgs/1080x1920/IMGNAME1080x1920.jpg',
-             '1024x1024'  => 'content/jpgs/square/IMGNAME1024x1024.jpg',
-             '2160x1440'  => 'content/jpgs/2160x1440/IMGNAME2160x1440.jpg',
-             '2048x2048'  => 'content/jpgs/square/IMGNAME2048x2048.jpg',
-             '2560x2560'  => 'content/jpgs/square/IMGNAME2560x2560.jpg',
-             '1024x768'   => 'content/jpgs/1024st/IMGNAME1024st.jpg',
-             '1152x864'   => 'content/jpgs/db/IMGNAME.jpg',
-             '1600x1200'  => 'content/jpgs/1600/IMGNAME1600.jpg',
-             '1280x1024'  => 'content/jpgs/1280/IMGNAME1280.jpg',
-             '1280x800'   => 'content/jpgs/1280w/IMGNAME1280w.jpg',
-             '1366x768'   => 'content/jpgs/1366/IMGNAME1366.jpg',
-             '1600x900'   => 'content/jpgs/1600x900/IMGNAME1600x900.jpg',
-             '1920x1080'  => 'content/jpgs/1080p/IMGNAME1080p.jpg',
-             '2560x1440'  => 'content/jpgs/1440p/IMGNAME1440p.jpg',
-             '1440x900'   => 'content/jpgs/1440/IMGNAME1440.jpg',
-             '1680x1050'  => 'content/jpgs/1680/IMGNAME1680.jpg',
-             '1920x1200'  => 'content/jpgs/widescreen/IMGNAME1920.jpg',
-             '2560x1600'  => 'content/jpgs/widescreen/IMGNAME2560.jpg',
-             '3440x1440'  => 'content/jpgs/21x9/IMGNAME3440.jpg',
-             '2880x1800'  => 'content/jpgs/widescreen/IMGNAME2880.jpg',
-             '3840x2160'  => 'content/jpgs/4k/IMGNAMEuhd.jpg',
-             '4096x2304'  => 'content/jpgs/4k/IMGNAME4ktv.jpg',
-             '5120x2880'  => 'content/jpgs/5k/IMGNAME5ktv.jpg',
-             '2560x1600L' => 'content/png/IMGNAME2560.png',
-             '2560x1440L' => 'content/png/IMGNAME1440p.png',
-             '2880x1800L' => 'content/png/IMGNAME2880.png',
-             '2560x1024'  => 'content/jpgs/2x/IMGNAME2x2560.jpg',
-             '3200x1200'  => 'content/jpgs/2x/IMGNAME2x.jpg',
-             '3840x1080'  => 'content/jpgs/2x/IMGNAME2x1080p.jpg',
-             '5120x1440'  => 'content/jpgs/2x/IMGNAME2x1440p.jpg',
-             '3360x1050'  => 'content/jpgs/2x/IMGNAME2x3360.jpg',
-             '3840x1200'  => 'content/jpgs/2x/IMGNAME2x3840.jpg',
-             '5120x1600'  => 'content/jpgs/2x/IMGNAME2x5120.jpg',
-             '8192x2304'  => 'content/jpgs/2x/IMGNAME4ktv2x.jpg',
-             '7680x2160'  => 'content/jpgs/2x/IMGNAME2xuhd.jpg',
-             '10240x2880' => 'content/jpgs/2x/IMGNAME5k2x.jpg',
-             '3840x1024'  => 'content/jpgs/3x/IMGNAME3x3840.jpg',
-             '4800x1200'  => 'content/jpgs/3x/IMGNAME3x.jpg',
-             '5760x1080'  => 'content/jpgs/3x/IMGNAME3x1080p.jpg',
-             '7680x1440'  => 'content/jpgs/3x/IMGNAME3x1440p.jpg',
-             '5040x1050'  => 'content/jpgs/3x/IMGNAME3x5040.jpg',
-             '5760x1200'  => 'content/jpgs/3x/IMGNAME3x5760.jpg',
-             '7680x1600'  => 'content/jpgs/3x/IMGNAME3x7680.jpg',
-             '12288x2304' => 'content/jpgs/3x/IMGNAME4ktv3x.jpg',
-             '11520x2160' => 'content/jpgs/3x/IMGNAME3xuhd.jpg',
-             '15360x2880' => 'content/jpgs/3x/IMGNAME5k3x.jpg');
+             '640x1136'   => 'https://secure.digitalblasphemy.com/content/jpgs/640x1136/IMGNAME640x1136.jpg',
+             '750x1344'   => 'https://secure.digitalblasphemy.com/content/jpgs/750x1344/IMGNAME750x1344.jpg',
+             '1920x1920'  => 'https://secure.digitalblasphemy.com/content/jpgs/square/IMGNAME1920x1920.jpg',
+             '960x544'    => 'https://secure.digitalblasphemy.com/content/jpgs/960x544/IMGNAME960x544.jpg',
+             '960x800'    => 'https://secure.digitalblasphemy.com/content/jpgs/960x800/IMGNAME960x800.jpg',
+             '960x854'    => 'https://secure.digitalblasphemy.com/content/jpgs/960x854/IMGNAME960x854.jpg',
+             '1440x1280'  => 'https://secure.digitalblasphemy.com/content/jpgs/1440x1280/IMGNAME1440x1280.jpg',
+             '1080x1920'  => 'https://secure.digitalblasphemy.com/content/jpgs/1080x1920/IMGNAME1080x1920.jpg',
+             '1024x1024'  => 'https://secure.digitalblasphemy.com/content/jpgs/square/IMGNAME1024x1024.jpg',
+             '2160x1440'  => 'https://secure.digitalblasphemy.com/content/jpgs/2160x1440/IMGNAME2160x1440.jpg',
+             '2048x2048'  => 'https://secure.digitalblasphemy.com/content/jpgs/square/IMGNAME2048x2048.jpg',
+             '2560x2560'  => 'https://secure.digitalblasphemy.com/content/jpgs/square/IMGNAME2560x2560.jpg',
+             '1024x768'   => 'https://secure.digitalblasphemy.com/content/jpgs/1024st/IMGNAME1024st.jpg',
+             '1152x864'   => 'https://secure.digitalblasphemy.com/content/jpgs/db/IMGNAME.jpg',
+             '1600x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/1600/IMGNAME1600.jpg',
+             '1280x1024'  => 'https://secure.digitalblasphemy.com/content/jpgs/1280/IMGNAME1280.jpg',
+             '1280x800'   => 'https://secure.digitalblasphemy.com/content/jpgs/1280w/IMGNAME1280w.jpg',
+             '1366x768'   => 'https://secure.digitalblasphemy.com/content/jpgs/1366/IMGNAME1366.jpg',
+             '1600x900'   => 'https://secure.digitalblasphemy.com/content/jpgs/1600x900/IMGNAME1600x900.jpg',
+             '1920x1080'  => 'https://secure.digitalblasphemy.com/content/jpgs/1080p/IMGNAME1080p.jpg',
+             '2560x1440'  => 'https://secure.digitalblasphemy.com/content/jpgs/1440p/IMGNAME1440p.jpg',
+             '1440x900'   => 'https://secure.digitalblasphemy.com/content/jpgs/1440/IMGNAME1440.jpg',
+             '1680x1050'  => 'https://secure.digitalblasphemy.com/content/jpgs/1680/IMGNAME1680.jpg',
+             '1920x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/widescreen/IMGNAME1920.jpg',
+             '2560x1600'  => 'https://secure.digitalblasphemy.com/content/jpgs/widescreen/IMGNAME2560.jpg',
+             '3440x1440'  => 'https://secure.digitalblasphemy.com/content/jpgs/21x9/IMGNAME3440.jpg',
+             '2880x1800'  => 'https://secure.digitalblasphemy.com/content/jpgs/widescreen/IMGNAME2880.jpg',
+             '3840x2160'  => 'https://secure.digitalblasphemy.com/content/jpgs/4k/IMGNAMEuhd.jpg',
+             '4096x2304'  => 'https://secure.digitalblasphemy.com/content/jpgs/4k/IMGNAME4ktv.jpg',
+             '5120x2880'  => 'https://secure.digitalblasphemy.com/content/jpgs/5k/IMGNAME5ktv.jpg',
+             '2560x1024'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x2560.jpg',
+             '3200x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x.jpg',
+             '3840x1080'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x1080p.jpg',
+             '5120x1440'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x1440p.jpg',
+             '3360x1050'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x3360.jpg',
+             '3840x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x3840.jpg',
+             '5120x1600'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2x5120.jpg',
+             '8192x2304'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME4ktv2x.jpg',
+             '7680x2160'  => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME2xuhd.jpg',
+             '10240x2880' => 'https://secure.digitalblasphemy.com/content/jpgs/2x/IMGNAME5k2x.jpg',
+             '3840x1024'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x3840.jpg',
+             '4800x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x.jpg',
+             '5760x1080'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x1080p.jpg',
+             '7680x1440'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x1440p.jpg',
+             '5040x1050'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x5040.jpg',
+             '5760x1200'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x5760.jpg',
+             '7680x1600'  => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3x7680.jpg',
+             '12288x2304' => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME4ktv3x.jpg',
+             '11520x2160' => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME3xuhd.jpg',
+             '15360x2880' => 'https://secure.digitalblasphemy.com/content/jpgs/3x/IMGNAME5k3x.jpg');
 
 # Create Directories and files if they don't exist.
 if ( !-e $datadir ) {
@@ -169,7 +165,7 @@ else {
         seek($rssmod,0,0);
         print $rssmod $rssheaders->last_modified
     };
-    
+
 };
 close($rssmod);
 
@@ -185,7 +181,7 @@ if ( $skip == 0 ) {
 
     tie @dllist, 'Tie::File', "$datadir/dllist.txt" or die "Cannot open $datadir/dllist.txt: $!\n";
     $histcnt = @dllist;
-    foreach $i ( $feed->query('//item') ) { 
+    foreach $i ( $feed->query('//item') ) {
         $pdate = $i->query('pubDate');
         $title = $i->query('title');
         $des = $i->query('description');
@@ -236,9 +232,9 @@ if ( $skip == 0 ) {
                 };
                 $n++;
             };
-            
+
             # Download the selected size images.
-            $ua->credentials('www.digitalblasphemy.com:80', 'DB Member', $dbuser => $dbpass);
+            $ua->credentials('secure.digitalblasphemy.com:443', 'DB Member', $dbuser => $dbpass);
             if ( $check == 0 ) {
                 $dlresults = &download_imgs($imgname);
                 push(@imgdld, $title->text_content);
@@ -269,7 +265,7 @@ if ( $skip == 0 ) {
             };
         };
     };
-    
+
     # Remove any items from the download list that are no longer in the RSS feed.
     $l = 0;
     foreach $line (@dllist) {
@@ -308,7 +304,7 @@ if ( $sendmail eq 'yes' && $skip == 0 ) {
             $b++;
         };
         $emailtxt .= "</table>\n\n";
-    };    
+    };
     $html = "<html>\n<p>\n$emailtxt</p>\n</html>\n";
 
     # Create plain text from html.
@@ -328,7 +324,7 @@ if ( $sendmail eq 'yes' && $skip == 0 ) {
             authdomain => $mailauthdomain,
         };
     }
-    else { 
+    else {
         $mail = new Mail::Sender;
     };
     $mail->OpenMultipart({
@@ -374,7 +370,11 @@ sub download_imgs($) {
         # If the file does not already exit, try to download it.
         if ( !-e "$basedir/$dlval" ) {
             &write_log("Downloading $imgname at $dlkey... ",0);
-            my $dlreq = new HTTP::Request('GET', "http://www.digitalblasphemy.com/$uri");
+            if ( $uri =~ /https/ ) {
+                $dlreq = new HTTP::Request('GET', "$uri");
+            } else {
+                my $dlreq = new HTTP::Request('GET', "http://www.digitalblasphemy.com/$uri");
+            }
             my $dlres = $ua->request($dlreq, "$basedir/$dlval");
             # Check to see that we got an OK response, and that the size of the file matches
             # what the server says it should be.
@@ -431,7 +431,7 @@ sub retry_download($) {
                     &write_log("Success\n",1);
                 }
                 else {
-                    &write_log("Failed, File download incomplete.\n",1); 
+                    &write_log("Failed, File download incomplete.\n",1);
                     unlink "$basedir/$dlval" or &write_log("WARNING: Could not delete incomplete image $basedir/$dlval: $!\n",0);
                 };
             }
@@ -481,13 +481,13 @@ sub get_blurb($) {
 
 sub dec_to_bin($) {
     my $dldec = shift;
-    my $bstr = unpack("b48", pack("I", $dldec)); 
+    my $bstr = unpack("b48", pack("I", $dldec));
     $bstr = reverse($bstr);
-    my @bits = split(//,substr($bstr, -$dlcount)); 
+    my @bits = split(//,substr($bstr, -$dlcount));
     @bits = reverse @bits;
     return @bits;
 }
-    
+
 sub bin_to_dec($) {
     my @bits = @_;
     my $bstr = join("", @bits);
@@ -498,7 +498,7 @@ sub bin_to_dec($) {
 
 sub bit_to_txt($) {
     my $bit = shift;
-    if ( $bit == 0 ) { 
+    if ( $bit == 0 ) {
         return 'Failed';
     }
     else {
@@ -535,4 +535,3 @@ sub text_rtn {
         $plain .= $line;
     };
 }
-
