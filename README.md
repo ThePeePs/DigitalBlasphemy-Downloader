@@ -18,7 +18,7 @@ If you are on Windows, you need to install Perl (see [Windows Install](https://g
 
 The script needs to be run  from it's directory, or it will not be able to find the config file.
 
-patcher.pl should be used after you updated (either git pull or svn checkout).  It will add any new sizes that Ryan has added to the site (commented out), and remove the ones that are longer offered.  It should also be run from it's directory. 
+patcher.pl should be used after you updated (either git pull or svn checkout).  It will add any new sizes that Ryan has added to the site (commented out), and remove the ones that are longer offered.  It should also be run from it's directory.
 
 ## Installation
 ### Windows Install
@@ -55,10 +55,16 @@ I suggest you set it up as a scheduled task to run at least once a week.
 
 
 
-### Linux Install (Debian/Ubuntu)
+### Linux Install
 
-    sudo apt-get install git libconfig-inihash-perl libwww-perl libhtml-treebuilder-xpath-perl libmail-sender-perl 
+First you need some Perl libraries.  On Debian/Ubuntu run:
+
+    sudo apt-get install git libconfig-inihash-perl libwww-perl libhtml-treebuilder-xpath-perl libmail-sender-perl
     sudo cpan DateTime::Format::Mail XML::RSS::Parser
+
+On Fedora instead run:
+
+    sudo dnf install perl-Config-IniHash perl-libwww-perl perl-HTML-TreeBuilder-XPath perl-Mail-Sender perl-DateTime-Format-Mail perl-XML-RSS perl-Sys-Hostname-Long
 
 Clone the repo.
 
