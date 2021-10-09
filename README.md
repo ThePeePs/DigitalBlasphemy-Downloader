@@ -4,6 +4,8 @@ You must be a Member of Digital Blasphemy to download the Hi-Res versions (membe
 If you have any suggestions, feature requests or find a bug, please open a issue.<br>
 If you would like to contribute, please fork the repo, and submit a Pull Request.
 
+## This project is nolonger supported, please see the newer [python version](https://github.com/ThePeePs/DigitalBlasphemy-Downloader-py).
+
 ## Usage
 If you are on Windows, you need to install Perl (see [Windows Install](https://github.com/ThePeePs/DigitalBlasphemy-Downloader#windows-install)). The following modules are also requred.<br>
 * Sys::Hostname::Long
